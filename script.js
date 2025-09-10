@@ -29,11 +29,11 @@ const domains = [
 ];
 
 let score = 0;
-let remaining = 10; // 총 문제 개수
+let remaining = 17; // 총 문제 개수
 let currentDomain;
 
 function nextDomain() {
-  if (remaining <= 0) {
+  if (remaining <= 7) {
     // ✅ 마지막 문제 후 점수 저장
     localStorage.setItem("score1", score); 
     window.location.href = "result.html"; 
@@ -45,7 +45,7 @@ function nextDomain() {
 }
 
 function check(answer) {
-  if (remaining <= 0) return;
+  if (remaining <= 7) return;
   if (answer === currentDomain.real) {
     score++;
   } else {
