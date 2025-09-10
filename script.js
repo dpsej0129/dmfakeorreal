@@ -11,6 +11,7 @@ const domains = [
   { name: "coupang.com", real: true },
   { name: "coupeng.com", real: false },
   { name: "copang.com", real: false },
+  { name: "c0upang.com", real: false },
   { name: "netflix.com", real: true },
   { name: "netflixx.com", real: false },
   { name: "natflix.com", real: false },
@@ -18,7 +19,13 @@ const domains = [
   { name: "instargram.com", real: false },
   { name: "instagrem.com", real: false },
   { name: "instagrem.com", real: false },
-  { name: "lnstagram.com", real: false }
+  { name: "lnstagram.com", real: false },
+  { name: "facebook.com", real: true },
+  { name: "facebok.com", real: false },
+  { name: "facabook.com", real: false },
+  { name: "fakebook.com", real: false },
+  { name: "faceboook.com", real: false },
+  { name: "faceb00k.com", real: false }
 ];
 
 let score = 0;
