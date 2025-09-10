@@ -6,13 +6,11 @@ document.getElementById("score").innerText = score;
 const quiz = [
   {
     question: "피싱(Phishing) 공격의 주요 목적은 무엇일까요?",
-    image: "images/phishing_example.png",
     choices: ["시스템 속도 향상", "개인 정보 탈취", "네트워크 안정화", "디스크 공간 확보"],
     answer: 1
   },
   {
     question: "강력한 비밀번호를 만들 때 가장 올바른 방법은?",
-    image: "images/password_example.png",
     choices: ["짧고 기억하기 쉬운 단어 사용", "생일 같은 개인정보 사용", "대문자, 숫자, 특수문자 조합", "모든 사이트에 같은 비밀번호 사용"],
     answer: 2
   },
