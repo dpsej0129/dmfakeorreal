@@ -1,17 +1,112 @@
-<!-- index.html 예시 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>도메인 진짜 가짜 찾기</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>도메인 진짜 가짜 찾기 게임</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f0f8ff;
+    }
+    h1 {
+      color: #333;
+    }
+    #domain {
+      font-size: 2em;
+      margin: 30px 0;
+      color: #007acc;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: #00bfff;
+      color: white;
+      transition: 0.2s;
+    }
+    button:hover {
+      background-color: #009acd;
+    }
+    #score, #timer {
+      font-weight: bold;
+    }
+    .info {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
-  <h2 id="domain"></h2>
+
+  <h1>도메인 진짜 가짜 찾기</h1>
+  <div id="domain">도메인 표시</div>
   <button onclick="check(true)">진짜</button>
   <button onclick="check(false)">가짜</button>
-  <div>점수: <span id="score">0</span></div>
-  <div>남은 시간: <span id="timer">30</span>초</div>
-  <script src="script.js"></script>
+
+  <div class="info">점수: <span id="score">0</span></div>
+  <div class="info">남은 시간: <span id="timer">30</span>초</div>
+
+  <script>
+    const domains = [
+      { name: "google.com", real: true },
+      { name: "goggle.com", real: false },
+      { name: "naver.com", real: true },
+      { name: "navar.com", real: false },
+      { name: "github.com", real: true },
+      { name: "githbub.com", real: false },
+      { name: "daum.net", real: true },
+      { name: "damu.net", real: false },
+      { name: "youtube.com", real: true },
+      { name: "youtubee.com", real: false }
+    ];
+
+    let score = 0;
+    let time = 30;
+    let currentDomain;
+
+    function nextDomain() {
+      const randomIndex = Math.floor(Math.random() * domains.length);
+      currentDomain = domains[randomIndex];
+      document.getElementById("domain").innerText = currentDomain.name;
+    }
+
+    function check(answer) {
+      if(answer === currentDomain.real) {
+        score++;
+      } else {
+        score--;
+      }
+      document.getElementById("score").innerText = score;
+      nextDomain();
+    }
+
+    function countdown() {
+      if(time > 0) {
+        time--;
+        document.getElementById("timer").innerText = time;
+        setTimeout(countdown, 1000);
+      } else {
+        alert("게임 종료! 최종 점수: " + score);
+        // 게임 재시작
+        score = 0;
+        time = 30;
+        document.getElementById("score").innerText = score;
+        document.getElementById("timer").innerText = time;
+        nextDomain();
+        countdown();
+      }
+    }
+
+    // 게임 시작
+    nextDomain();
+    countdown();
+  </script>
+
 </body>
 </html>
