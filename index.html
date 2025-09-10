@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>도메인 진짜 가짜 게임</title>
+  <title>도메인 진짜 가짜 찾기 게임</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <h1>도메인 진짜 가짜 찾기</h1>
   <div id="domain">도메인 표시</div>
   <button onclick="check(true)">진짜</button>
   <button onclick="check(false)">가짜</button>
-  <div>점수: <span id="score">0</span></div>
-  <div>남은 시간: <span id="timer">30</span>초</div>
+
+  <div class="info">점수: <span id="score">0</span></div>
+  <div class="info">남은 문제: <span id="remaining">20</span></div>
+
   <script src="script.js"></script>
 </body>
 </html>
