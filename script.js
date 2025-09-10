@@ -3,54 +3,54 @@ const domains = [
   { name: "goggle.com", real: false },
   { name: "naver.com", real: true },
   { name: "navar.com", real: false },
-  { name: "never.com", real: false },
-  { name: "googol.com", real: false },
+  { name: "github.com", real: true },
+  { name: "githbub.com", real: false },
+  { name: "daum.net", real: true },
+  { name: "damu.net", real: false },
   { name: "youtube.com", real: true },
-  { name: "youtbe.com", real: false },
-  { name: "yotube.com", real: false },
-  { name: "coupang.com", real: true },
-  { name: "coupeng.com", real: false },
-  { name: "copang.com", real: false },
-  { name: "netflix.com", real: true },
-  { name: "netflixx.com", real: false },
-  { name: "natflix.com", real: false },
+  { name: "youtubee.com", real: false },
+  { name: "kakao.com", real: true },
+  { name: "cacao.com", real: false },
+  { name: "tistory.com", real: true },
+  { name: "tistroy.com", real: false },
+  { name: "facebook.com", real: true },
+  { name: "facebok.com", real: false },
   { name: "instagram.com", real: true },
-  { name: "instargram.com", real: false },
-  { name: "instagrem.com", real: false },
-  { name: "instagrem.com", real: false },
-  { name: "lnstagram.com", real: false }
+  { name: "instagrm.com", real: false },
+  { name: "twitter.com", real: true },
+  { name: "twiter.com", real: false }
 ];
 
-let score = 0
-let time = 30;
+let score = 0;
+let remaining = 20; // 총 문제 개수
 let currentDomain;
 
 function nextDomain() {
+  if (remaining <= 0) {
+    alert("게임 종료! 최종 점수: " + score);
+    // 게임 초기화
+    score = 0;
+    remaining = 20;
+    document.getElementById("score").innerText = score;
+    document.getElementById("remaining").innerText = remaining;
+  }
   const randomIndex = Math.floor(Math.random() * domains.length);
   currentDomain = domains[randomIndex];
   document.getElementById("domain").innerText = currentDomain.name;
 }
 
 function check(answer) {
-  if(answer === currentDomain.real) score++; else score--;
-  document.getElementById("score").innerText = score;
-  nextDomain();
-}
-
-function countdown() {
-  if(time > 0) {
-    time--;
-    document.getElementById("timer").innerText = time;
-    setTimeout(countdown, 1000);
+  if (remaining <= 0) return;
+  if (answer === currentDomain.real) {
+    score++;
   } else {
-    alert("게임 종료! 최종 점수: " + score);
-    score = 0; time = 30;
-    document.getElementById("score").innerText = score;
-    document.getElementById("timer").innerText = time;
-    nextDomain(); countdown();
+    score--;
   }
+  remaining--;
+  document.getElementById("score").innerText = score;
+  document.getElementById("remaining").innerText = remaining;
+  nextDomain();
 }
 
 // 게임 시작
 nextDomain();
-countdown();
