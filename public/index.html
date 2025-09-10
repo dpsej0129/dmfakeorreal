@@ -1,1 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>도메인 진짜/가짜 판별기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>도메인 진짜 ↔ 가짜 판별기</h1>
+    <p class="lead">도메인을 입력하면 DNS·WHOIS·SSL·문자열 분석으로 위험도를 계산해 알려드립니다.</p>
+
+    <div class="card">
+      <label for="domain">도메인 (예: example.com)</label>
+      <input id="domain" placeholder="example.com" />
+      <button id="checkBtn">검사하기</button>
+    </div>
+
+    <div id="result" class="card hidden">
+      <h2 id="verdict">판별 결과</h2>
+      <div id="scoreBar" class="score"></div>
+      <pre id="details"></pre>
+    </div>
+
+    <footer>
+      <small>참고: 도구는 보조용입니다. 최종 판단은 사용자가 하세요. (예제 프로젝트)</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
 
