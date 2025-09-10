@@ -1,3 +1,4 @@
+function startQuiz(score1){
 // 1단계 점수 불러오기
 const score1 = parseInt(localStorage.getItem("score1") || "0", 10);
 
@@ -120,3 +121,4 @@ function checkAnswer(selected) {
 
 // 처음 문제 표시
 loadQuestion();
+}
