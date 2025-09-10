@@ -7,7 +7,7 @@ const domains = [
   { name: "googol.com", real: false },
   { name: "youtube.com", real: real },
   { name: "youtbe.com", real: false },
-  { name: "yotube.com", real: false },
+  { name: "yotube.com", real: false }
 ];
 
 let score = 0;
