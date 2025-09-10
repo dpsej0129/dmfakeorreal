@@ -61,11 +61,9 @@ nextDomain();
 
 function loadQuestion() {
   if (remaining <= 0) {
-    // 1단계 점수 저장
-    localStorage.setItem("score1", score);
-
-    // 결과 페이지로 이동
-    window.location.href = "result.html";
+    // 마지막에만 점수 저장
+    localStorage.setItem("score1", score); // 반드시 숫자형 점수 저장
+    window.location.href = "result.html"; // result.html로 이동
     return;
   }
 
