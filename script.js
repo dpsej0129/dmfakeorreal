@@ -58,3 +58,11 @@ function check(answer) {
 
 // 게임 시작
 nextDomain();
+
+function endQuiz() {
+  // 현재 점수 저장
+  localStorage.setItem("score1", score);
+
+  // 결과 페이지로 이동
+  window.location.href = "result.html";
+}
