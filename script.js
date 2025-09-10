@@ -34,12 +34,9 @@ let currentDomain;
 
 function nextDomain() {
   if (remaining <= 0) {
-    alert("게임 종료! 최종 점수: " + score);
-    // 게임 초기화
-    score = 0;
-    remaining = 10;
-    document.getElementById("score").innerText = score;
-    document.getElementById("remaining").innerText = remaining;
+    // 마지막 문제 후 다른 파일로 이동
+    window.location.href = "result.html"; 
+    return;
   }
   const randomIndex = Math.floor(Math.random() * domains.length);
   currentDomain = domains[randomIndex];
