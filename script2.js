@@ -53,7 +53,7 @@ function shuffle(array) {
 // ✅ 문제 순서를 랜덤으로 바꾸기
 let quizData = shuffle([...quiz]);
 
-let score2 = 0;
+let score2 = score1;
 let remaining2 = quizData.length;
 let currentIndex = 0;
 
@@ -61,14 +61,11 @@ function loadQuestion() {
   if (remaining2 <= 0) {
     // 최종 점수 계산
     localStorage.setItem("score2", score2);
-    const total = score1 + score2;
 
     // 결과 화면 표시
     document.body.innerHTML = `
       <h1>퀴즈 종료!</h1>
-      <p>1단계 점수: ${score1}</p>
-      <p>2단계 점수: ${score2}</p>
-      <h2>총 점수: ${total}</h2>
+      <h2>총 점수: ${score2}</h2>
     `;
     return;
   }
