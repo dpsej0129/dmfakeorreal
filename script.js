@@ -34,7 +34,8 @@ let currentDomain;
 
 function nextDomain() {
   if (remaining <= 0) {
-    // 마지막 문제 후 다른 파일로 이동
+    // ✅ 마지막 문제 후 점수 저장
+    localStorage.setItem("score1", score); 
     window.location.href = "result.html"; 
     return;
   }
@@ -58,18 +59,3 @@ function check(answer) {
 
 // 게임 시작
 nextDomain();
-
-function loadQuestion() {
-  if (remaining <= 0) {
-    // 마지막에만 점수 저장
-    localStorage.setItem("score1", score); // 반드시 숫자형 점수 저장
-    window.location.href = "result.html"; // result.html로 이동
-    return;
-  }
-
-  const q = quizData[currentIndex];
-  document.getElementById("domain").innerText = q.domain;
-  document.getElementById("score").innerText = score;
-  document.getElementById("remaining").innerText = remaining;
-}
-
