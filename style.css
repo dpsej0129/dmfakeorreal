@@ -41,3 +41,9 @@ button:hover {
   font-size: 1.2em;
   font-weight: bold;
 }
+
+#questionImage {
+  display: block;      /* 블록 요소로 만들기 */
+  margin: 10px auto;   /* 위아래 10px, 좌우 자동 중앙 정렬 */
+  max-width: 300px;    /* 최대 크기 지정 */
+}
