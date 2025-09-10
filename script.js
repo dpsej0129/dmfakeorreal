@@ -10,10 +10,18 @@ const domains = [
   { name: "yotube.com", real: false },
   { name: "coupang.com", real: true },
   { name: "coupeng.com", real: false },
-  { name: "copang.com", real: false }
+  { name: "copang.com", real: false },
+  { name: "netflix.com", real: true },
+  { name: "netflixx.com", real: false },
+  { name: "natflix.com", real: false },
+  { name: "instagram.com", real: true },
+  { name: "instargram.com", real: false },
+  { name: "instagrem.com", real: false },
+  { name: "instagrem.com", real: false },
+  { name: "lnstagram.com", real: false }
 ];
 
-let score = 0;
+let score = 0
 let time = 30;
 let currentDomain;
 
