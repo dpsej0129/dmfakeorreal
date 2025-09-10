@@ -5,7 +5,7 @@ const domains = [
   { name: "navar.com", real: false },
   { name: "never.com", real: false },
   { name: "googol.com", real: false },
-  { name: "youtube.com", real: real },
+  { name: "youtube.com", real: true },
   { name: "youtbe.com", real: false },
   { name: "yotube.com", real: false }
 ];
