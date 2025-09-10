@@ -2,10 +2,10 @@
 const score1 = parseInt(localStorage.getItem("score1")) || 0;
 document.getElementById("prevScore").innerText = score1;
 
-// 보안 객관식 문제 세트 (총 7문제)
+// 보안 객관식 문제 세트
 const quiz = [
   {
-    question: "피싱(Fishing) 공격의 주요 목적은 무엇일까요?",
+    question: "피싱(Phishing) 공격의 주요 목적은 무엇일까요?",
     choices: ["시스템 속도 향상", "개인 정보 탈취", "네트워크 안정화", "디스크 공간 확보"],
     answer: 1
   },
@@ -25,7 +25,7 @@ const quiz = [
     answer: 1
   },
   {
-    question: "다음 중 2단계 인증(2FA)의 예시는?",
+    question: "2단계 인증(2FA)의 예시는?",
     choices: ["비밀번호만 입력", "비밀번호 + OTP 코드", "비밀번호 저장", "자동 로그인"],
     answer: 1
   },
@@ -41,8 +41,19 @@ const quiz = [
   }
 ];
 
+// 배열 섞기
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+let quizData = shuffle(quiz);
+
 let score2 = 0;
-let remaining2 = quiz.length;
+let remaining2 = quizData.length;
 let currentIndex = 0;
 
 function loadQuestion() {
@@ -61,7 +72,7 @@ function loadQuestion() {
     return;
   }
 
-  const q = quiz[currentIndex];
+  const q = quizData[currentIndex];
   document.getElementById("question").innerText = q.question;
 
   const choicesDiv = document.getElementById("choices");
@@ -76,7 +87,7 @@ function loadQuestion() {
 }
 
 function checkAnswer(selected) {
-  const q = quiz[currentIndex];
+  const q = quizData[currentIndex];
   if (selected === q.answer) {
     score2++;
   } else {
@@ -91,5 +102,5 @@ function checkAnswer(selected) {
   loadQuestion();
 }
 
-// 게임 시작
+// 시작
 loadQuestion();
