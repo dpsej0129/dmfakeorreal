@@ -1,9 +1,9 @@
-function startQuiz(score1){
 // 1단계 점수 불러오기
 const score1 = parseInt(localStorage.getItem("score1") || "0", 10);
+document.getElementById("score1").innerText = score1;
 
-// prevScore span에 표시
-document.getElementById("prevScore").innerText = score1;
+// 2단계 점수 초기화
+let score2 = 0;
 
 // 보안 객관식 문제 세트 (예시)
 const quiz = [
@@ -46,7 +46,7 @@ const quiz = [
   }
 ];
 
-// 문제 배열 랜덤 섞기
+// 문제 랜덤 섞기
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -56,25 +56,24 @@ function shuffle(array) {
 }
 
 let quizData = shuffle([...quiz]);
-
-let score2 = 0;
 let remaining2 = quizData.length;
 let currentIndex = 0;
+
+function updateScore() {
+  document.getElementById("score2").innerText = score2;
+  document.getElementById("totalScore").innerText = score1 + score2;
+}
 
 function loadQuestion() {
   if (remaining2 <= 0) {
     // 2단계 점수 저장
     localStorage.setItem("score2", score2);
 
-    // 최종 점수 계산
-    const total = score1 + score2;
-
-    // 최종 화면 표시
     document.body.innerHTML = `
       <h1>퀴즈 종료!</h1>
       <p>1단계 점수: ${score1}</p>
       <p>2단계 점수: ${score2}</p>
-      <h2>총 점수: ${total}</h2>
+      <h2>총 점수: ${score1 + score2}</h2>
     `;
     return;
   }
@@ -82,9 +81,8 @@ function loadQuestion() {
   const q = quizData[currentIndex];
   document.getElementById("question").innerText = q.question;
 
-  // 이미지 표시
   const img = document.getElementById("questionImage");
-  if (q.image) {
+  if(q.image){
     img.src = q.image;
     img.style.display = "block";
   } else {
@@ -101,24 +99,19 @@ function loadQuestion() {
     choicesDiv.appendChild(btn);
   });
 
-  // 점수와 남은 문제 표시
-  document.getElementById("score").innerText = score2;
   document.getElementById("remaining").innerText = remaining2;
+  updateScore();
 }
 
 function checkAnswer(selected) {
   const q = quizData[currentIndex];
-  if (selected === q.answer) {
-    score2++;
-  } else {
-    score2--;
-  }
+  if (selected === q.answer) score2++;
+  else score2--;
 
   remaining2--;
   currentIndex++;
   loadQuestion();
 }
 
-// 처음 문제 표시
+// 퀴즈 시작
 loadQuestion();
-}
