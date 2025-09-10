@@ -1,25 +1,24 @@
-/* style.css 수정본 */
+/* style.css 수정본 - 단색 배경 */
 body {
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 깔끔한 폰트 */
   padding: 50px;
 
-  /* 배경: 노랑 → 분홍 그라데이션 */
-  background: linear-gradient(135deg, #fff176, #ff69b4);
+  /* 단색 배경 */
+  background-color: #f5f5f5; /* 연한 회색 배경으로 깔끔하게 */
   color: #333;
   min-height: 100vh;
 }
 
 h1 {
   color: #333;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: none;
 }
 
 #domain {
   font-size: 2.5em;
   margin: 30px 0;
-  color: #ff4081; /* 도메인 강조 색 */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  color: #222; /* 진한 글씨로 강조 */
 }
 
 button {
@@ -28,20 +27,18 @@ button {
   margin: 10px;
   cursor: pointer;
   border: none;
-  border-radius: 12px;
-  background-color: #ff4081; /* 버튼 색상 */
+  border-radius: 8px;
+  background-color: #2196f3; /* 깔끔한 파랑 버튼 */
   color: white;
-  transition: 0.3s;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  transition: 0.2s;
 }
 
 button:hover {
-  background-color: #e91e63;
+  background-color: #1976d2; /* 호버 시 조금 더 진한 파랑 */
 }
 
 .info {
   margin-top: 20px;
   font-size: 1.3em;
   font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
