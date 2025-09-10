@@ -1,5 +1,5 @@
 // 1단계 점수 불러오기
-const score1 = parseInt(localStorage.getItem("score1") || 0);
+const score1 = parseInt(localStorage.getItem("score1")) || 0;
 document.getElementById("prevScore").innerText = score1;
 
 // 보안 객관식 문제 세트 (총 7문제)
