@@ -8,25 +8,28 @@ body {
 }
 
 h1 {
-  color: #333;
+  margin-bottom: 20px;
 }
 
-#domain {
-  font-size: 2.5em;
-  margin: 30px 0;
-  color: #222;
+#domain, #question {
+  font-size: 1.8em;
+  margin: 20px 0;
 }
 
 button {
-  font-size: 1.2em;
-  padding: 12px 25px;
-  margin: 10px;
+  font-size: 1.1em;
+  padding: 10px 20px;
+  margin: 8px;
   cursor: pointer;
   border: none;
   border-radius: 8px;
   background-color: #2196f3;
   color: white;
   transition: 0.2s;
+  display: block;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 button:hover {
@@ -34,7 +37,7 @@ button:hover {
 }
 
 .info {
-  margin-top: 20px;
-  font-size: 1.3em;
+  margin-top: 15px;
+  font-size: 1.2em;
   font-weight: bold;
 }
