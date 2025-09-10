@@ -1,21 +1,16 @@
 // 1단계 점수 불러오기
-const score1 = parseInt(localStorage.getItem("score1") || "0", 10);
-document.getElementById("score1").innerText = score1;
+const score1 = parseInt(localStorage.getItem("score1")) || 0;
+document.getElementById("prevScore").innerText = score1;
 
-// 2단계 점수 초기화
-let score2 = 0;
-
-// 보안 객관식 문제 세트 (예시)
+// 보안 객관식 문제 세트
 const quiz = [
   {
     question: "피싱(Phishing) 공격의 주요 목적은 무엇일까요?",
-    image: "images/phishing_example.png",
     choices: ["시스템 속도 향상", "개인 정보 탈취", "네트워크 안정화", "디스크 공간 확보"],
     answer: 1
   },
   {
     question: "강력한 비밀번호를 만들 때 가장 올바른 방법은?",
-    image: "images/password_example.png",
     choices: ["짧고 기억하기 쉬운 단어 사용", "생일 같은 개인정보 사용", "대문자, 숫자, 특수문자 조합", "모든 사이트에 같은 비밀번호 사용"],
     answer: 2
   },
@@ -46,7 +41,7 @@ const quiz = [
   }
 ];
 
-// 문제 랜덤 섞기
+// ✅ 배열을 섞는 함수 (Fisher-Yates shuffle)
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -55,39 +50,31 @@ function shuffle(array) {
   return array;
 }
 
+// ✅ 문제 순서를 랜덤으로 바꾸기
 let quizData = shuffle([...quiz]);
+
+let score2 = 0;
 let remaining2 = quizData.length;
 let currentIndex = 0;
 
-function updateScore() {
-  document.getElementById("score2").innerText = score2;
-  document.getElementById("totalScore").innerText = score1 + score2;
-}
-
 function loadQuestion() {
   if (remaining2 <= 0) {
-    // 2단계 점수 저장
+    // 최종 점수 계산
     localStorage.setItem("score2", score2);
+    const total = score1 + score2;
 
+    // 결과 화면 표시
     document.body.innerHTML = `
       <h1>퀴즈 종료!</h1>
       <p>1단계 점수: ${score1}</p>
       <p>2단계 점수: ${score2}</p>
-      <h2>총 점수: ${score1 + score2}</h2>
+      <h2>총 점수: ${total}</h2>
     `;
     return;
   }
 
   const q = quizData[currentIndex];
   document.getElementById("question").innerText = q.question;
-
-  const img = document.getElementById("questionImage");
-  if(q.image){
-    img.src = q.image;
-    img.style.display = "block";
-  } else {
-    img.style.display = "none";
-  }
 
   const choicesDiv = document.getElementById("choices");
   choicesDiv.innerHTML = "";
@@ -98,20 +85,23 @@ function loadQuestion() {
     btn.onclick = () => checkAnswer(index);
     choicesDiv.appendChild(btn);
   });
-
-  document.getElementById("remaining").innerText = remaining2;
-  updateScore();
 }
 
 function checkAnswer(selected) {
   const q = quizData[currentIndex];
-  if (selected === q.answer) score2++;
-  else score2--;
+  if (selected === q.answer) {
+    score2++;
+  } else {
+    score2--;
+  }
 
   remaining2--;
+  document.getElementById("score").innerText = score2;
+  document.getElementById("remaining").innerText = remaining2;
+
   currentIndex++;
   loadQuestion();
 }
 
-// 퀴즈 시작
+// ✅ 시작할 때 문제 랜덤 로딩
 loadQuestion();
