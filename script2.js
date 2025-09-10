@@ -41,7 +41,7 @@ const quiz = [
   }
 ];
 
-// 배열 섞기
+// ✅ 배열을 섞는 함수 (Fisher-Yates shuffle)
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -50,7 +50,8 @@ function shuffle(array) {
   return array;
 }
 
-let quizData = shuffle(quiz);
+// ✅ 문제 순서를 랜덤으로 바꾸기
+let quizData = shuffle([...quiz]);
 
 let score2 = 0;
 let remaining2 = quizData.length;
@@ -102,5 +103,5 @@ function checkAnswer(selected) {
   loadQuestion();
 }
 
-// 시작
+// ✅ 시작할 때 문제 랜덤 로딩
 loadQuestion();
