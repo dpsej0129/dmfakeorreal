@@ -6,6 +6,7 @@ document.getElementById("score").innerText = score;
 const quiz = [
   {
     question: "피싱(Phishing) 공격의 주요 목적은 무엇일까요?",
+    image: "images/white.png",
     choices: ["시스템 속도 향상", "개인 정보 탈취", "네트워크 안정화", "디스크 공간 확보"],
     answer: 1
   },
