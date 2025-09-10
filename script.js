@@ -29,7 +29,7 @@ const domains = [
 ];
 
 let score = 0;
-let remaining = 20; // 총 문제 개수
+let remaining = 10; // 총 문제 개수
 let currentDomain;
 
 function nextDomain() {
@@ -37,7 +37,7 @@ function nextDomain() {
     alert("게임 종료! 최종 점수: " + score);
     // 게임 초기화
     score = 0;
-    remaining = 20;
+    remaining = 10;
     document.getElementById("score").innerText = score;
     document.getElementById("remaining").innerText = remaining;
   }
