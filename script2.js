@@ -41,7 +41,7 @@ const quiz = [
   }
 ];
 
-// 문제 랜덤 섞기
+// 배열 섞기 (문제/보기 공용)
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -50,6 +50,7 @@ function shuffle(array) {
   return array;
 }
 
+// 문제 배열 섞기
 let quizData = shuffle([...quiz]);
 let remaining = quizData.length;
 let currentIndex = 0;
@@ -83,13 +84,20 @@ function loadQuestion() {
     img.style.display = "none";
   }
 
+  // 보기 랜덤 섞기 + 정답 인덱스 다시 지정
+  const choiceObjects = q.choices.map((choice, index) => ({
+    text: choice,
+    isAnswer: index === q.answer
+  }));
+  const shuffledChoices = shuffle(choiceObjects);
+
   const choicesDiv = document.getElementById("choices");
   choicesDiv.innerHTML = "";
 
-  q.choices.forEach((choice, index) => {
+  shuffledChoices.forEach((c, index) => {
     const btn = document.createElement("button");
-    btn.innerText = String.fromCharCode(65 + index) + ". " + choice;
-    btn.onclick = () => checkAnswer(index);
+    btn.innerText = String.fromCharCode(65 + index) + ". " + c.text;
+    btn.onclick = () => checkAnswer(c.isAnswer);
     choicesDiv.appendChild(btn);
   });
 
@@ -98,9 +106,8 @@ function loadQuestion() {
 }
 
 // 답 선택 처리
-function checkAnswer(selected) {
-  const q = quizData[currentIndex];
-  if (selected === q.answer) score++;
+function checkAnswer(isCorrect) {
+  if (isCorrect) score++;
   else score--;
 
   remaining--;
