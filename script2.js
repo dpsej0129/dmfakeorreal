@@ -6,7 +6,6 @@ document.getElementById("score").innerText = score;
 const quiz = [
   {
     question: "피싱(Phishing) 공격의 주요 목적은 무엇일까요?",
-    image: "images/white.png",
     choices: ["시스템 속도 향상", "개인 정보 탈취", "네트워크 안정화", "디스크 공간 확보"],
     answer: 1
   },
@@ -21,9 +20,9 @@ const quiz = [
     answer: 0
   },
   {
-    question: "HTTPS에서 'S'는 무엇을 의미할까요?",
-    choices: ["Safe", "Secure", "Server", "System"],
-    answer: 1
+    question: "다음 보기 중 더 안전한 사이트는?",
+    choices: ["htps", "http", "htps", "https"],
+    answer: 3
   },
   {
     question: "2단계 인증(2FA)의 예시는?",
