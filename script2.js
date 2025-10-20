@@ -78,13 +78,13 @@ function loadQuestion() {
   const q = quizData[currentIndex];
   document.getElementById("question").innerText = q.question;
 
-  const img = document.getElementById("questionImage");
-  if (q.image) {
-    img.src = q.image;
-    img.style.display = "block";
-  } else {
-    img.style.display = "none";
-  }
+const img = document.getElementById("questionImage");
+if (q.image) {
+  img.src = q.image;
+  img.style.display = "block";
+} else {
+  img.style.display = "none";
+}
 
   // 보기 랜덤 섞기 + 정답 인덱스 다시 지정
   const choiceObjects = q.choices.map((choice, index) => ({
