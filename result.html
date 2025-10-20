@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>보안 퀴즈</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <h1>보안 퀴즈</h1>
 
-  <!-- 합산 점수 표시 -->
+  <!-- 합산 점수 표시 (중복 제거) -->
   <p>점수: <span id="score">0</span></p>
 
-  <!-- 문제 영역 -->
-<div id="question">문제가 표시됩니다.</div>
-<img id="questionImage" src="" alt="" style="display:none;">
-<div id="choices"></div>         <!-- <- 이게 반드시 필요 -->
-<span id="score">0</span>
-<span id="remaining">0</span>
+  <!-- 문제 영역 (이미지를 question 내부에 넣음) -->
+  <div id="question">
+    <p id="questionText">문제가 표시됩니다.</p>
+    <img id="questionImage" src="" alt="문제 이미지" style="display:none;">
+  </div>
 
+  <!-- 선택지 -->
+  <div id="choices"></div>
 
-  <!-- 남은 문제 -->
+  <!-- 남은 문제 (한 번만) -->
   <div class="info">남은 문제: <span id="remaining">0</span></div>
 
+  <!-- 스크립트는 body 끝에 로드 -->
   <script src="script2.js"></script>
 </body>
 </html>
