@@ -7,6 +7,7 @@ const quiz = [
   {
     question: "피싱(Phishing) 공격의 주요 목적은 무엇일까요?",
     choices: ["시스템 속도 향상", "개인 정보 탈취", "네트워크 안정화", "디스크 공간 확보"],
+    image: "images/entry1.png",
     answer: 1
   },
   {
