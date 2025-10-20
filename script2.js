@@ -26,7 +26,7 @@ const quiz = [
     answer: 3
   },
   {
-    question: "2단계 인증(2FA)의 예시는?",
+    question: "시작하기 버튼을 눌렀을 때 실행 결과는?",
     choices: ["10", "1", "2", "7"],
     image: "images/entry2.png",
     answer: 0
