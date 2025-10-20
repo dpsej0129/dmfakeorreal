@@ -5,8 +5,8 @@ document.getElementById("score").innerText = score;
 // 보안 객관식 문제 배열
 const quiz = [
   {
-    question: "피싱(Phishing) 공격의 주요 목적은 무엇일까요?",
-    choices: ["시스템 속도 향상", "개인 정보 탈취", "네트워크 안정화", "디스크 공간 확보"],
+    question: "시작하기 버튼을 눌렀을 때 실행 결과는?",
+    choices: ["12", "10", "3", "Error"],
     image: "images/entry1.png",
     answer: 1
   },
