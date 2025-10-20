@@ -27,8 +27,9 @@ const quiz = [
   },
   {
     question: "2단계 인증(2FA)의 예시는?",
-    choices: ["비밀번호만 입력", "비밀번호 + OTP 코드", "비밀번호 저장", "자동 로그인"],
-    answer: 1
+    choices: ["10", "1", "2", "7"],
+    image: "images/entry2.png",
+    answer: 0
   },
   {
     question: "알 수 없는 사람이 보낸 이메일 첨부파일을 열면 위험한 이유는?",
