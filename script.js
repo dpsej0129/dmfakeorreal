@@ -2,6 +2,7 @@ const domains = [
   { name: "google.com", real: true },
   { name: "go99le.com", real: false },
   { name: "9oggle.com", real: false },
+  { name: "google,com", real: false },
   { name: "naver.com", real: true },
   { name: "nevar.com", real: false },
   { name: "never.com", real: false },
@@ -26,7 +27,7 @@ const domains = [
   { name: "canver.cam", real: false },
   { name: "cenve.com", real: false },
   { name: "danva.com", real: false },
-  { name: "carva.com", real: false },
+  { name: "carva.com", real: false }
 ];
 
 let score = 0;
